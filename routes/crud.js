@@ -1,4 +1,4 @@
-const ecpress = require('express');
+const express = require('express');
 const router = ecpress.Router();
 const Product = require('../models/products');
 
@@ -18,11 +18,16 @@ router.post("/add-product", async (req,res)=>{
 
 router.get("/products", async (req,res)=>{
     try{
+<<<<<<< HEAD
         const products = await Product.find();
+=======
+        const products = await User.find(); 
+>>>>>>> sub_branch
         res.status(200).json({message : "Products retrieved successfully", products: products});
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
+<<<<<<< HEAD
 })
 
 router.put("/update-product/:id", async (req,res)=>{
@@ -44,33 +49,28 @@ router.delete("/delete-product/:id", async (req,res)=>{
         return res.status(400).json({ message: error.message });
     }
 })
+=======
+});
 
-module.exports = router;
+router.put("/update-product/:id", async (req,res)=>{
+    try{
+        const updatedProduct = await User.findByIdAndUpdate(req.params.id,
+            req.body
+            , { "new": true });
+            res.status(200).json({ message: "Product updated successfully", product: updatedProduct });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }   
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.delete("/delete-product/:id", async (req,res)=>{
+    try{
+        await User.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: "Product deleted successfully" });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }   
+});
+>>>>>>> sub_branch
 
 module.exports = router;
