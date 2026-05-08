@@ -3,6 +3,8 @@ const app = express()
 const mongoose = require("mongoose")
 const authRoutes = require("./routes/auth")
 const crudRoutes = require("./routes/crud")
+require('dotenv').config()
+
 
 
 

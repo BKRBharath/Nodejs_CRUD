@@ -1,5 +1,5 @@
 const express = require('express');
-const router = ecpress.Router();
+const router = express.Router();
 const User = require('../models/products');
 
 router.post("/add-product", async (req,res)=>{
