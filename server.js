@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const mogoose = require("mongoose")
+const mongoose = require("mongoose")
 const authRoutes = require("./routes/auth")
 const crudRoutes = require("./routes/crud")
 
@@ -21,7 +21,7 @@ app.listen(PORT, ()=>{
     console.log("Server is running on port " + PORT)
 })
 
-mogoose.connect("mongodb://localhost:27017/authdb")
+mongoose.connect("mongodb://localhost:27017/authdb")
 .then(()=>{
     console.log("Connected to mongoDB")
 })
